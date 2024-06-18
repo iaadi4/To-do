@@ -29,7 +29,7 @@ function TodoItem({ todo }) {
             />
             <input
                 type="text"
-                className={`bg-customWhite w-2/3 sm:w-1/2 outline-none ${todo.completed ? 'line-through': ''}`}
+                className={`bg-customWhite w-2/3 sm:w-1/2 outline-none ${todo.completed ? 'line-through line-through:bg-customBlue': ''}`}
                 value={newTodo}
                 readOnly={todo.completed}
                 onChange={(e) => !todo.completed ? setNewTodo(e.target.value): todo.todo}
