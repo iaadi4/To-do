@@ -1,6 +1,7 @@
 import { useState } from "react";
-import useTodo from "../context/todoContext";
+import useTodo from "../../context/todoContext";
 import { MdDelete } from "react-icons/md";
+import './item.css'
 
 
 function TodoItem({ todo }) {
@@ -22,13 +23,13 @@ function TodoItem({ todo }) {
         >
             <input
                 type="checkbox"
-                className='h-5 w-5 mr-4 text-customBlue'
+                className='h-5 w-5 mr-3'
                 checked={todo.completed}
                 onChange={toggleCompleted}
             />
             <input
                 type="text"
-                className={`bg-customWhite w-2/3 sm:w-1/2 tex-xl outline-none ${todo.completed ? 'line-through': ''}`}
+                className={`bg-customWhite w-2/3 sm:w-1/2 outline-none ${todo.completed ? 'line-through': ''}`}
                 value={newTodo}
                 readOnly={todo.completed}
                 onChange={(e) => !todo.completed ? setNewTodo(e.target.value): todo.todo}
