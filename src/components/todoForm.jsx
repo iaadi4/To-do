@@ -4,7 +4,7 @@ import useTodo from "../context/todoContext";
 
 function TodoForm() {
 
-    const [todo, setTodo] = useState([]);
+    const [todo, setTodo] = useState(null);
 
     const { addTodo } = useTodo();
 
@@ -12,12 +12,13 @@ function TodoForm() {
         e.preventDefault();
         if(!todo) 
             return;
-        addTodo({todo: todo, completed: false});
+        addTodo({todo: todo, id: Date.now() , completed: false});
     }
 
     return (
         <form onSubmit={add} className="flex w-full justify-center">
             <input
+                type="text"
                 className="h-12 sm:w-1/2 w-2/3 outline-none rounded-sm pl-4"
                 value={todo}
                 placeholder="Write todo..."

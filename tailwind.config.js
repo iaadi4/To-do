@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        'customWhite': '#eeeeee',
         'customBlue': '#0092ca',
         'customLightBlue': '#02b2f5',
         'customBlack': '#222831',
