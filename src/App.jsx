@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { SiTodoist } from "react-icons/si";
 import TodoForm from './components/todoForm/todoForm';
 import TodoItem from './components/todoItem/todoItem';
@@ -27,6 +27,16 @@ function App() {
   const toggleComplete = (id) => {
     setTodos((prev) => prev.map((prevTodo) => prevTodo.id === id ? {...prevTodo, completed: !prevTodo.completed}: prevTodo));
   }
+
+  useEffect(() => {
+    const allTodos = JSON.parse(localStorage.getItem('todos'));
+    if(allTodos && allTodos.length)
+      setTodos(allTodos);
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos])
 
   return (
     <TodosProvider value={{todos, addTodo, updateTodo, deleteTodo, toggleComplete}}>
